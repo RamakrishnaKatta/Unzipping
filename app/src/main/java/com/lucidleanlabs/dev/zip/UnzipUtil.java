@@ -17,7 +17,7 @@ public class UnzipUtil
 
     public UnzipUtil(String zipFile, String location)
     {
-        this.location = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Sofa_3_Seater_Black_Grey";
+        this.location = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/";
         this.zipFile = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Sofa_3_Seater_Black_Grey.zip";;
 
         dirChecker("");
@@ -27,17 +27,13 @@ public class UnzipUtil
         try {
             FileInputStream fin = new FileInputStream(zipFile);
             ZipInputStream zin = new ZipInputStream(fin);
-            ZipEntry ze;
-            while ((ze = zin.getNextEntry()) != null)
-            {
+            ZipEntry ze = null;
+            while ((ze = zin.getNextEntry()) != null)            {
                 Log.v("Decompress", "Unzipping " + ze.getName());
 
-                if(ze.isDirectory())
-                {
+                if(ze.isDirectory())                {
                     dirChecker(ze.getName());
-                }
-                else
-                {
+                } else{
                     FileOutputStream fout = new FileOutputStream(location + ze.getName());
 
                     for (int i = zin.read(); i != -1; i = zin.read()) {
@@ -52,9 +48,7 @@ public class UnzipUtil
 //                    }
                     fout.close();
                     zin.closeEntry();
-
                 }
-
             } zin.close();
         }catch(Exception e)
         {

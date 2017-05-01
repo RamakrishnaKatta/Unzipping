@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
-    String Location = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Sofa_3_Seater_Black_Grey";
+    String Location = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/";
     String StorezipFileLocation = Environment.getExternalStorageDirectory() + "/L_CATALOGUE/Sofa_3_Seater_Black_Grey.zip";
 
     @Override
